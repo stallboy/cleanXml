@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="cleanXml" default="dist">
+    <property name="src" value="src/"/>
+    <property name="build" value="classes/"/>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build}"/>
+        <javac encoding="UTF-8" srcdir="${src}" destdir="${build}" includeantruntime="false" debug="true"
+               debuglevel="lines,source">
+            <compilerarg value="-parameters"/>
+        </javac>
+    </target>
+
+    <target name="dist" depends="compile">
+        <jar jarfile="cleanXml.jar" basedir="${build}" manifest="${src}/MANIFEST.MF"/>
+        <delete dir="${build}"/>
+    </target>
+
+</project>
