@@ -1,19 +1,20 @@
 # cleanXml
 
-- xml to object, object to xml mapper.  
-- simple and clean.
-- inspired by XStream
+- xml object mapper,  simple and clean.
+- inspired by XStream.
 
 ## init 
+- javac -parameters
 
-```java
+```jshelllanguage
 XData xd = new XData("cleanXml");
+
 xd.register(TargetSelector.class);
 ```
 
 ## object to xml
 
-```java
+```jshelllanguage
 TargetSelector ts = new TargetSelector("enemy", false, List.of(
                 new IsAlive(),
                 new IsInRange(0, 10)));
@@ -30,6 +31,6 @@ String xml = xd.toXmlString(ts);
 
 ## xml to object
 
-```java
+```jshelllanguage
 TargetSelector ts2 = xd.fromXmlString(xml);
 ```

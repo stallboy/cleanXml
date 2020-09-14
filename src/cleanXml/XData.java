@@ -7,6 +7,7 @@ import java.lang.reflect.*;
 import java.util.*;
 
 //类似XStream功能
+@SuppressWarnings("unused")
 public class XData {
     private final String scanPkg;
     private final Map<Class<?>, XClass> xClassMap = new IdentityHashMap<>();
@@ -675,7 +676,6 @@ public class XData {
         return true;
     }
 
-    @SuppressWarnings("unused")
     public void print() {
         print(XClassType.INTERFACE);
         print(XClassType.CLASS);
@@ -695,14 +695,13 @@ public class XData {
         String name = xClass.tag();
 
         switch (xClass.xClassType) {
-            case INTERFACE:
+            case INTERFACE -> {
                 sb.append("----").append(name);
                 for (XClass aClass : xClass.xImplClassList) {
                     sb.append("\n      ").append(aClass.name);
                 }
-                break;
-
-            case CLASS:
+            }
+            case CLASS -> {
                 sb.append(name).append("(");
                 for (XParam xParam : xClass.xParamList) {
                     sb.append("\n      ").append(xParam.attr()).append(":");
@@ -715,14 +714,13 @@ public class XData {
                     sb.append("\n      ");
                 }
                 sb.append(")");
-                break;
-
-            case ENUM:
+            }
+            case ENUM -> {
                 sb.append("####").append(name);
                 for (Object enumObj : xClass.xEnumObjList) {
                     sb.append("\n      ").append(enumObj);
                 }
-                break;
+            }
         }
 
         System.out.println(sb);

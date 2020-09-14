@@ -4,7 +4,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -14,8 +13,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -47,16 +44,6 @@ public class DomUtils {
     public static Element getChildElementAssure1(Element ele) {
         List<Element> childElements = getChildElementsAssureSize(ele, 1);
         return childElements.get(0);
-    }
-
-    public static Element rootElement(File file) {
-        try {
-            return DocumentBuilderFactory.newInstance()
-                    .newDocumentBuilder().parse(file)
-                    .getDocumentElement();
-        } catch (SAXException | IOException | ParserConfigurationException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public static Document newDocument() {

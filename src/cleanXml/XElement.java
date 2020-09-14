@@ -104,6 +104,7 @@ public class XElement {
         return res;
     }
 
+    @SuppressWarnings("unused")
     public List<XEle> getChildXElements() {
         return xElements;
     }
@@ -111,13 +112,13 @@ public class XElement {
     public void printUnused() {
         for (XAttr xAttr : xAttrs) {
             if (!xAttr.used) {
-                System.out.println(String.format("%s[%s] = %s 未使用", ele.getTagName(), xAttr.attr.getName(), xAttr.attr.getValue()));
+                System.out.printf("%s[%s] = %s 未使用%n", ele.getTagName(), xAttr.attr.getName(), xAttr.attr.getValue());
             }
         }
 
         for (XEle xElement : xElements) {
             if (!xElement.used) {
-                System.out.println(String.format("%s<%s> 未使用", ele.getTagName(), xElement.ele.getTagName()));
+                System.out.printf("%s<%s> 未使用%n", ele.getTagName(), xElement.ele.getTagName());
             }
         }
     }

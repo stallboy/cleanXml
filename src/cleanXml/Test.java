@@ -7,6 +7,7 @@ public class Test {
     public static class Actor {
     }
 
+    @SuppressWarnings("unused")
     public interface TargetRule {
         boolean eval(Actor self, Actor target);
     }
@@ -18,6 +19,7 @@ public class Test {
         }
     }
 
+    @SuppressWarnings("unused")
     public static class IsInRange implements TargetRule {
         private final float min;
         private final float max;

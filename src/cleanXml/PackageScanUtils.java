@@ -46,9 +46,9 @@ public class PackageScanUtils {
             return classSet;
         }
 
-        File[] dirfiles = dir.listFiles(file -> (recursive && file.isDirectory()) || file.getName().endsWith(".class"));
-        if (dirfiles != null) {
-            for (File file : dirfiles) {
+        File[] files = dir.listFiles(file -> (recursive && file.isDirectory()) || file.getName().endsWith(".class"));
+        if (files != null) {
+            for (File file : files) {
                 if (file.isDirectory()) {
                     Set<Class<?>> subClassSet = findClassesInPackageByFile(packageName + "." + file.getName(), file.getAbsolutePath(), recursive);
 
