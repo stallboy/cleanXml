@@ -1,6 +1,6 @@
 # cleanXml
 
-- xml object mapper,  simple and clean.
+- xml object mapper, simple and clean.
 - inspired by XStream.
 
 ## init 
