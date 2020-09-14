@@ -6,7 +6,7 @@
 ## init 
 - javac -parameters
 
-```jshelllanguage
+```java
 XData xd = new XData("cleanXml");
 
 xd.register(TargetSelector.class);
@@ -14,7 +14,7 @@ xd.register(TargetSelector.class);
 
 ## object to xml
 
-```jshelllanguage
+```java
 TargetSelector ts = new TargetSelector("enemy", false, List.of(
                 new IsAlive(),
                 new IsInRange(0, 10)));
@@ -31,6 +31,6 @@ String xml = xd.toXmlString(ts);
 
 ## xml to object
 
-```jshelllanguage
+```java
 TargetSelector ts2 = xd.fromXmlString(xml);
 ```
